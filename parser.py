@@ -19,10 +19,14 @@ def insertItems(file):
           line = line.strip('\n').split('\t')
           if line[1] != "Empty" and line[0].startswith("Bank"):
             if items.get(line[1]) == None:
-              items[line[1]] = [1,file.name]
+              items[line[1]] = [1,[]]
               
             else:
               items[line[1]][0] += 1
+            print(line[1])
+            print(items[line[1]][1])
+            if file.name.partition("-")[0] not in items[line[1]][1]:
+                    items[line[1]][1].append(file.name.partition("-")[0])
 
 for file in files:
     insertItems(file)
@@ -32,7 +36,7 @@ for item in items:
 conn.commit()
 
 a = c.execute("select * from skybank;").fetchall()
-
+print (items)
 @app.route('/')
 def index():
     return render_template('item_list.html', items=items)

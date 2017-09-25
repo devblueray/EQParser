@@ -2,7 +2,10 @@
 	{% for key, value in items.items() %}
 		<tr>
 			<td>{{key}}</td>
+			<td>{{value[0]}}</td>
+			{% for value in value[1] %}
 			<td>{{value}}</td>
+			{% endfor %}
 		</tr>
 	{% endfor %}
 </table>
