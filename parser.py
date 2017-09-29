@@ -40,9 +40,9 @@ def newInsertItems(*args):
                     if line[1] != "Empty" and line[0].startswith("Bank"):
                         if items.get(line[1]) == None:
                             items[line[1]] = [{"Hi":2}] #must have this for now, it inits the list/dict(will try to fix later)
-                            items[line[1]][0]=({"Iltar":2})
+                            items[line[1]][0]=({current.name:line[3]})
                         else:
-                            items[line[1]][0].update({"Boop":4})
+                            items[line[1]][0].update({current.name:line[3]})
     print(items)
     
     #print("TEST", items['Backpack'])                           
