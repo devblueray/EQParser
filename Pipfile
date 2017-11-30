@@ -6,11 +6,17 @@ name = "pypi"
 [dev-packages]
 awscli = "*"
 
+
+
+
+
+
 [packages]
 
 flask = "*"
 pymongo = "*"
 zappa = "*"
+mysqlclient = "*"
 
 
 [requires]
